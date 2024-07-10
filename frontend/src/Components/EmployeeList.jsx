@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Alert from './Alert'
 
 const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee }) => {
 
-    const table = ['ID', 'Profile', 'Username', 'Email', 'Mobile No.', 'Position', 'Course', 'Gender', 'Created At', 'Action']
+    const table = ['S.No.', 'ID', 'Profile', 'Username', 'Email', 'Mobile No.', 'Position', 'Course', 'Gender', 'Created At', 'Action']
 
     return (
 
         <section className="max-w-screen-xl mx-auto px-4 md:px-8 mb-10">
-            
+
             <div className='md:flex justify-end gap-x-6 items-center mb-16'>
 
                 <div className="mt-6 md:mt-0 ">
@@ -48,7 +49,9 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
             </div>
 
             <div className="mt-6 shadow-sm border rounded-lg overflow-x-auto">
+                
                 <table className="w-full table-auto text-sm text-left">
+                
                     <thead className="bg-gray-50 text-gray-600 font-medium border-b">
                         <tr>
                             {table.map((item, idx) => (
@@ -56,11 +59,14 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
                             ))}
                         </tr>
                     </thead>
+
                     <tbody className="text-gray-600 divide-y">
                         {employeeData.map((item, idx) => (
                             <tr key={idx}>
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    {/* <span>{idx+1}</span> */}
+                                    <span>{idx + 1}</span>
+                                </td>
+                                <td className="px-4 py-4 whitespace-nowrap">
                                     <span>{item.id}</span>
                                 </td>
                                 <td className="py-3 px-4 whitespace-nowrap">
@@ -84,9 +90,14 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
                                     </button>
                                 </td>
                             </tr>
-                        ))}
+                        ))
+                        }
                     </tbody>
+                
                 </table>
+
+                {!employeeData.length && <Alert />}
+
             </div>
 
         </section>

@@ -93,7 +93,7 @@ const CreateEmployee = ({ formData, handleNewValueChange, imagePreview, handleIm
                   required
                   className="block w-full rounded-md border-2 px-3 py-[8px] text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 >
-                  <option disabled value={''}> Select option </option>
+                  <option disabled selected value=''> Select option </option>
                   <option value="hr">HR</option>
                   <option value="manager">Manager</option>
                   <option value="sales">Sales</option>

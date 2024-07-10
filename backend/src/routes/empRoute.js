@@ -155,9 +155,18 @@ router.post('/addEmployee', upload.single('avatar'), async (req, res) => {
 
     const url = req.protocol + '://' + req.get('host')
 
-    const lastEmployee = await empModel.find({}).sort({ _id: -1 }).limit(1);
+    // const lastEmployee = await empModel.find({}).sort({ _id: -1 }).limit(1);
 
-    const id = lastEmployee.length ? lastEmployee[0]._id + 1 : 1;
+    // const id = lastEmployee.length ? lastEmployee[0]._id + 1 : 1;
+
+    // const id = uuid().slice(0, 6);
+
+    const generateNumericId = () => {
+        const id = uuid().replace(/\D/g, '').slice(0, 5);
+        return Number(id);
+    };
+
+    const id = generateNumericId();
 
     let empData = new empModel({
         _id: id,
