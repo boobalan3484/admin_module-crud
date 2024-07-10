@@ -13,7 +13,7 @@ const CreateEmployee = ({ formData, handleNewValueChange, imagePreview, handleIm
 
           <div className="mt-5 grid grid-cols-2 gap-x-8">
             <div className='py-2'>
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-indigo-800">
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                 Name
               </label>
               <div className="mt-2">
