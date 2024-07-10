@@ -1,1 +1,7 @@
-![Screenshot 2024-07-10 133116](https://github.com/boobalan3484/admin_module-crud/assets/139740118/2c4905c8-f715-46b9-be14-aeb2a76beee3)
+![Screenshot 2024-07-10 133116](https://github.com/boobalan3484/admin_module-crud/assets/139740118/d8a069bb-7631-47d1-8223-a8d2e956b7db)
+![Screenshot 2024-07-10 130922](https://github.com/boobalan3484/admin_module-crud/assets/139740118/b975640f-acbc-4f59-9221-da54a8c0cafc)
+![Screenshot 2024-07-10 130931](https://github.com/boobalan3484/admin_module-crud/assets/139740118/0601c1c6-78c3-4419-bf97-4653136b10e2)
+![Screenshot 2024-07-10 133045](https://github.com/boobalan3484/admin_module-crud/assets/139740118/af40b37b-8bdf-489a-8678-f3124e7a164e)
+![Screenshot 2024-07-10 131457](https://github.com/boobalan3484/admin_module-crud/assets/139740118/7fd0fb51-43f8-47ad-8571-265f012debcb)
+![Screenshot 2024-07-10 133116](https://github.com/boobalan3484/admin_module-crud/assets/139740118/2aa448c5-4153-4b04-b9e9-151a067548bc)
+![Screenshot 2024-07-10 131540](https://github.com/boobalan3484/admin_module-crud/assets/139740118/d7fa3b66-d024-4cd9-90db-208e10f78219)
