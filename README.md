@@ -1,4 +1,4 @@
-![Screenshot 2024-07-10 133116](https://github.com/boobalan3484/admin_module-crud/assets/139740118/d8a069bb-7631-47d1-8223-a8d2e956b7db)
+![Screenshot 2024-07-10 130913](https://github.com/boobalan3484/admin_module-crud/assets/139740118/8afa735e-cd1e-4c0b-a07f-871ce75d1a0b)
 ![Screenshot 2024-07-10 130922](https://github.com/boobalan3484/admin_module-crud/assets/139740118/b975640f-acbc-4f59-9221-da54a8c0cafc)
 ![Screenshot 2024-07-10 130931](https://github.com/boobalan3484/admin_module-crud/assets/139740118/0601c1c6-78c3-4419-bf97-4653136b10e2)
 ![Screenshot 2024-07-10 133045](https://github.com/boobalan3484/admin_module-crud/assets/139740118/af40b37b-8bdf-489a-8678-f3124e7a164e)
