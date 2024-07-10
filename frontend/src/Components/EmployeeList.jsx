@@ -90,8 +90,7 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
                                     </button>
                                 </td>
                             </tr>
-                        ))
-                        }
+                        ))}
                     </tbody>
                 
                 </table>
