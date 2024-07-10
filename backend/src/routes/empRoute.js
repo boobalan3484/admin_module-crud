@@ -10,6 +10,31 @@ const loginModel = require('../model/loginModel')
 
 const empModel = require('../model/addEmpModel')
 
+// const generateNumericId = () => {
+//     const id = uuid().replace(/\D/g, '').slice(0, 5);
+//     return Number(id);
+// };
+
+// const id = generateNumericId();
+
+// const generateNumericId = async () => {
+//     let id;
+//     let isUnique = false;
+
+//     while (!isUnique) {
+//         const id = Number(uuid().replace(/\D/g, '').slice(0, 5));
+//         // if (id >= 10000 && id <= 19999) {
+//         const existingEmployee = await empModel.findOne({ _id: id });
+//         if (!existingEmployee) {
+//             isUnique = true;
+//         }
+//     // }
+// }
+// return Number(id);
+// };
+
+// const id = generateNumericId();
+
 const uploadPath = './public/'
 
 // Set up storage engine
@@ -21,7 +46,8 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const fileName = file.originalname.toLowerCase().split(' ').join('-');
         // cb(null, Date.now() + '-' + fileName)
-        cb(null, uuid().slice(0, 6) + '-' + fileName)
+        cb(null, uuid().slice(0, 5) + '-' + fileName)
+        // cb(null, id + '-' + fileName)
     }
 });
 
@@ -43,7 +69,10 @@ router.post('/register', async (req, res) => {
         // Check if the username already exists
         const existingUser = await loginModel.findOne({ username });
         if (existingUser) {
-            return res.status(400).json({ message: 'Username already exists' });
+            return res.status(400).
+                json(
+                    { message: 'Username already exists' }
+                );
         }
 
         // Create a new user
@@ -53,9 +82,14 @@ router.post('/register', async (req, res) => {
         });
 
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).
+            json(
+                { message: 'User registered successfully' }
+            );
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json(
+            { message: error.message }
+        );
     }
 });
 
@@ -67,17 +101,28 @@ router.post('/login', async (req, res) => {
         // Find the user by username
         const user = await loginModel.findOne({ username });
         if (!user) {
-            return res.status(400).json({ message: 'Invalid username or password' });
+            return res.status(400)
+                .json(
+                    { message: 'Invalid username or password' }
+                );
         }
 
         // Check the password
         if (user.password !== password) { // For security reasons, never store passwords in plain text in a real app
-            return res.status(400).json({ message: 'Invalid username or password' });
+            return res.status(400)
+                .json(
+                    { message: 'Invalid username or password' }
+                );
         }
-
-        res.status(200).json({ message: 'Login successfull' });
+        res.status(200).
+            json(
+                { message: 'Login successfull' }
+            );
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500)
+            .json(
+                { message: error.message }
+            );
     }
 });
 
@@ -89,8 +134,7 @@ router.post('/login', async (req, res) => {
 router.get("/getAllEmployee", async (req, res) => {
     try {
         let findAllData = await empModel.find();
-        res
-            .status(200)
+        res.status(200)
             .json({
                 status: 200,
                 message: "Data fetch successfully",
@@ -99,8 +143,7 @@ router.get("/getAllEmployee", async (req, res) => {
             });
     }
     catch (error) {
-        res
-            .status(400)
+        res.status(400)
             .json({
                 status: 400,
                 message: error.message,
@@ -144,6 +187,37 @@ router.get('/getEmployee/:_id', async (req, res) => {
     }
 });
 
+// // API endpoint to 'get' employee by 'name'
+// router.get('/getEmployeeByName/:name', async (req, res) => {
+//     const name = req.params.name;
+
+//     try {
+//         // Find the employee by name (case-insensitive)
+//         const employee = await empModel.findOne({ name: { $regex: new RegExp(`^${name}$`, 'i') } });
+
+//         if (!employee) {
+//             return res.status(404).json({
+//                 status: 404,
+//                 message: 'Employee not found',
+//                 error: true
+//             });
+//         }
+
+//         res.status(200).json({
+//             status: 200,
+//             message: 'Employee found successfully',
+//             error: false,
+//             data: employee
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             status: 500,
+//             message: error.message,
+//             error: true
+//         });
+//     }
+// });
+
 
 // ========== POST Method - add single employee ==========
 
@@ -156,16 +230,15 @@ router.post('/addEmployee', upload.single('avatar'), async (req, res) => {
     const url = req.protocol + '://' + req.get('host')
 
     // const lastEmployee = await empModel.find({}).sort({ _id: -1 }).limit(1);
-
     // const id = lastEmployee.length ? lastEmployee[0]._id + 1 : 1;
 
-    // const id = uuid().slice(0, 6);
+    // // id is get from global declared variable 'id' on line no.18
 
     const generateNumericId = () => {
         const id = uuid().replace(/\D/g, '').slice(0, 5);
         return Number(id);
     };
-
+    
     const id = generateNumericId();
 
     let empData = new empModel({
@@ -179,12 +252,10 @@ router.post('/addEmployee', upload.single('avatar'), async (req, res) => {
         avatar:
             // req.file.filename
             url + '/uploads/' + req.file.filename
-
     });
     try {
         let sendData = await empData.save();
-        res
-            .status(200)
+        res.status(200)
             .json({
                 status: 200,
                 message: 'Data added successfully!',
@@ -193,8 +264,7 @@ router.post('/addEmployee', upload.single('avatar'), async (req, res) => {
             });
     }
     catch (error) {
-        res
-            .status(400)
+        res.status(400)
             .json({
                 status: 400,
                 message: error.message,
