@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Alert from './Alert'
+import { useAppContext } from '../Utils/Context';
 
-const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee }) => {
+const EmployeeList = () => {
+
+    const { search, setSearch, searchResult, handleDeleteEmployee } = useAppContext();
+
+    const employeeData = searchResult
 
     const table = ['S.No.', 'ID', 'Profile', 'Username', 'Email', 'Mobile No.', 'Position', 'Course', 'Gender', 'Created At', 'Action']
 
@@ -49,9 +54,9 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
             </div>
 
             <div className="mt-6 shadow-sm border rounded-lg overflow-x-auto">
-                
+
                 <table className="w-full table-auto text-sm text-left">
-                
+
                     <thead className="bg-gray-50 text-gray-600 font-medium border-b">
                         <tr>
                             {table.map((item, idx) => (
@@ -67,7 +72,7 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
                                     <span>{idx + 1}</span>
                                 </td>
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    <span>{item.id}</span>
+                                    <span>{item._id}</span>
                                 </td>
                                 <td className="py-3 px-4 whitespace-nowrap">
                                     <img src={`${item.avatar}`} className="w-[50px] h-[50px] rounded-full shadow-md shadow-slate-400 bg-center bg-cover" alt='Img preview' />
@@ -92,7 +97,7 @@ const EmployeeList = ({ search, setSearch, employeeData, handleDeleteEmployee })
                             </tr>
                         ))}
                     </tbody>
-                
+
                 </table>
 
                 {!employeeData.length && <Alert />}

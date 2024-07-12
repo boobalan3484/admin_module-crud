@@ -1,6 +1,9 @@
 import React from 'react'
+import { useAppContext } from '../Utils/Context';
 
-const Authentication = ({ logData, handleLoginSubmit, handleLogValueChange }) => {
+const Authentication = () => {
+
+    const { logData, handleLoginSubmit, handleLogValueChange } = useAppContext();
 
     return (
         <section className="w-full h-full flex flex-col items-center justify-center pb-16">

@@ -2,8 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import Logo from './Logo'
 import NavBar from './NavBar'
+import { useAppContext } from '../Utils/Context'
 
-const Header = ({ location, navigation, loggerInfo, handleLogOut }) => {
+const Header = () => {
+
+  const { location, navigation, loggerInfo, handleLogOut } = useAppContext();
 
   const [state, setState] = useState(false)
 

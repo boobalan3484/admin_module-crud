@@ -1,6 +1,9 @@
 import React from 'react'
+import { useAppContext } from '../Utils/Context';
 
-const CreateEmployee = ({ formData, handleNewValueChange, imagePreview, handleImageChange, handleFormSubmit }) => {
+const CreateEmployee = () => {
+
+  const { formData, handleNewValueChange, imagePreview, handleImageChange, handleFormSubmit } = useAppContext();
 
   return (
 

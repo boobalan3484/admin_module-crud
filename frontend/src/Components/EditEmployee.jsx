@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../api/crud'
+import { useAppContext } from '../Utils/Context';
 
-const EditEmployee = ({ navigate, employeeData, setEmployeeData, setFetchDataTrigger }) => {
+const EditEmployee = () => {
+
+  const { navigate, employeeData, setEmployeeData, setFetchDataTrigger } = useAppContext();
 
   // // // {employeeData, setEmployeeData, navigate, setFetchDataTrigger, editFormData, handleEditValueChange, handleEditFormSubmit }
   // // // update / Edit data

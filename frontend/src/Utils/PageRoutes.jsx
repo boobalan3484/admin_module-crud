@@ -7,16 +7,11 @@ import CreateEmployee from '../Components/CreateEmployee'
 import EditEmployee from '../Components/EditEmployee'
 import NotFoundPage from '../Pages/NotFoundPage'
 
-const PageRoutes = ({ logData, handleLogValueChange, handleLoginSubmit, navigate, search, setSearch, employeeData, setEmployeeData, searchResult, formData, handleNewValueChange, imagePreview, handleImageChange, handleFormSubmit, handleDeleteEmployee, setFetchDataTrigger }) => {
+const PageRoutes = () => {
     return (
         <Routes>
             <Route path="/"
-                element={
-                    <Authentication
-                        logData={logData}
-                        handleLogValueChange={handleLogValueChange}
-                        handleLoginSubmit={handleLoginSubmit}
-                    />}
+                element={<Authentication />}
             />
 
             <Route path="/home"
@@ -26,34 +21,15 @@ const PageRoutes = ({ logData, handleLogValueChange, handleLoginSubmit, navigate
             <Route path="/employee">
 
                 <Route index
-                    element={<EmployeeList
-                        search={search}
-                        setSearch={setSearch}
-
-                        employeeData={searchResult}
-
-                        handleDeleteEmployee={handleDeleteEmployee}
-                    />}
+                    element={<EmployeeList />}
                 />
 
                 <Route path="/employee/add"
-                    element={<CreateEmployee
-                        formData={formData}
-                        handleNewValueChange={handleNewValueChange}
-                        imagePreview={imagePreview}
-                        handleImageChange={handleImageChange}
-                        handleFormSubmit={handleFormSubmit}
-                    />}
+                    element={<CreateEmployee />}
                 />
 
                 <Route path="/employee/edit/:_id"
-                    element={<EditEmployee
-                        employeeData={employeeData}
-                        setEmployeeData={setEmployeeData}
-                        setFetchDataTrigger={setFetchDataTrigger}
-
-                        navigate={navigate}
-                    />}
+                    element={<EditEmployee />}
                 />
 
             </Route>

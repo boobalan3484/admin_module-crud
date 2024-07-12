@@ -1,6 +1,9 @@
 import React from 'react'
+import { useAppContext } from '../Utils/Context';
 
-const SectionTitle = ({ location }) => {
+const SectionTitle = () => {
+
+  const { location } = useAppContext();
 
     let path = location.pathname.substring(1)
 
