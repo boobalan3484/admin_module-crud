@@ -34,6 +34,7 @@ const EmployeeList = () => {
                             </svg>
                             <input
                                 type="text"
+                                name='filter-box'
                                 placeholder="Search"
                                 className="w-full pl-12 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 rounded-lg "
                                 value={search}
@@ -83,7 +84,7 @@ const EmployeeList = () => {
                                 <td className="px-4 py-4 whitespace-nowrap capitalize">{item.designation}</td>
                                 <td className="px-4 py-4 whitespace-nowrap uppercase">{item.course}</td>
                                 <td className="px-4 py-4 whitespace-nowrap capitalize">{item.gender}</td>
-                                <td className="px-4 py-4 whitespace-nowrap capitalize">{`${item.updatedAt.slice(0, 10)}`}</td>
+                                <td className="px-4 py-4 whitespace-nowrap capitalize">{`${item.createdAt.slice(0, 10)}`}</td>
                                 <td className="py-4 whitespace-nowrap">
                                     <Link to={`/employee/edit/${item._id}`}
                                         className="py-2 px-4 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">

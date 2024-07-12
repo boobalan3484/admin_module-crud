@@ -15,7 +15,7 @@ const Alert = () => {
                             No records found.
                         </span>
                         <p className="text-red-600 mt-1">
-                            Sorry something wrong happened or please create new record.
+                            Sorry something wrong happened.
                         </p>
                     </div>
                 </div>
